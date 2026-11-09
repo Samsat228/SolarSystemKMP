@@ -20,11 +20,14 @@ import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowLeft
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.SkipNext
 import androidx.compose.material.icons.filled.SkipPrevious
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -43,8 +46,12 @@ import androidx.window.core.layout.WindowWidthSizeClass
 import coil3.compose.AsyncImage
 import getPlatform
 import kotlinx.coroutines.launch
+import org.jetbrains.compose.resources.stringResource
 import org.koin.compose.koinInject
 import planets.domain.domain.Planet
+import solarsystemkmp.composeapp.generated.resources.Res
+import solarsystemkmp.composeapp.generated.resources.*
+
 
 @OptIn(ExperimentalSharedTransitionApi::class)
 @Composable
@@ -52,6 +59,7 @@ fun SharedTransitionScope.PlanetsScreen(
     modifier: Modifier = Modifier,
     animatedVisibilityScope: AnimatedVisibilityScope,
     navigateToPlanetDetailScreen: (Int) -> Unit,
+    navigateToAboutScreen: () -> Unit
 ) {
 
     val planetsViewModel = koinInject<PlanetsViewModel>()
@@ -61,7 +69,8 @@ fun SharedTransitionScope.PlanetsScreen(
     val scope = rememberCoroutineScope()
 
     val windowAdaptiveInfo = currentWindowAdaptiveInfo()
-    val isCompacted = windowAdaptiveInfo.windowSizeClass.windowWidthSizeClass == WindowWidthSizeClass.COMPACT
+    val isCompacted =
+        windowAdaptiveInfo.windowSizeClass.windowWidthSizeClass == WindowWidthSizeClass.COMPACT
 
     Scaffold { paddingValues ->
 
@@ -110,11 +119,49 @@ fun SharedTransitionScope.PlanetsScreen(
                     modifier = modifier.align(Alignment.Center)
                 )
             }
+            if (state.errorMessage != "") {
+                Column(
+                    modifier = modifier
+                        .align(Alignment.Center)
+                        .padding(24.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    Text(
+                        text = stringResource(Res.string.error_message),
+                        color = MaterialTheme.colorScheme.error
+                    )
 
+                }
+            }
+            IconButton(
+                onClick = navigateToAboutScreen,
+                modifier = modifier
+                    .align(Alignment.TopEnd) // Прижимаем к правому верхнему углу
+                    .padding(8.dp)           // Отступ от края экрана
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Info,
+                    contentDescription = stringResource(Res.string.about_button_desc)
+                )
+            }
         }
+
 
     }
 
+}
+
+@Composable
+private fun localizedPlanetName(planet: Planet): String = when (planet.planetId) {
+    1 -> stringResource(Res.string.planet_mercury_name)
+    2 -> stringResource(Res.string.planet_venus_name)
+    3 -> stringResource(Res.string.planet_earth_name)
+    4 -> stringResource(Res.string.planet_mars_name)
+    5 -> stringResource(Res.string.planet_jupiter_name)
+    6 -> stringResource(Res.string.planet_saturn_name)
+    7 -> stringResource(Res.string.planet_uranus_name)
+    8 -> stringResource(Res.string.planet_neptune_name)
+    else -> planet.name
 }
 
 @OptIn(ExperimentalSharedTransitionApi::class)
@@ -158,7 +205,7 @@ fun SharedTransitionScope.PageItem(
         ) {
 
             Text(
-                text = planet.name,
+                text = localizedPlanetName(planet),
                 fontSize = 36.sp,
                 fontWeight = FontWeight.Bold
             )
@@ -171,7 +218,7 @@ fun SharedTransitionScope.PageItem(
                 }
             ) {
                 Text(
-                    text = "View",
+                    text = stringResource(Res.string.view_button),
                     fontWeight = FontWeight.Bold
                 )
             }

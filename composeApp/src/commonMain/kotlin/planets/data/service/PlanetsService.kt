@@ -1,11 +1,21 @@
 package planets.data.service
 
 import planets.domain.domain.Planet
+import planets.data.network.isNetworkAvailable
+import Result
 
 class PlanetsService() {
 
-    fun getPlanets(): List<Planet> {
-        return planets
+    fun getPlanets(): Result<List<Planet>> {
+        return if (isNetworkAvailable()) {
+            Result.Success(
+                planets
+            )
+        } else {
+            Result.Error(
+                IllegalStateException("No internet")
+            )
+        }
     }
 
     fun getPlanetById(planetId: Int): Planet? {

@@ -11,12 +11,13 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import planets.presentation.PlanetDetailScreen
 import planets.presentation.PlanetsScreen
+import planets.presentation.AboutScreen
 
 @OptIn(ExperimentalSharedTransitionApi::class)
 @Composable
 fun Navigation(
     navController: NavController
-){
+) {
     SharedTransitionLayout {
         NavHost(
             navController = navController as NavHostController,
@@ -29,6 +30,9 @@ fun Navigation(
                     animatedVisibilityScope = this,
                     navigateToPlanetDetailScreen = { planetId ->
                         navController.navigate(PLANET_DETAIL_SCREEN_ROUTE + "/${planetId}")
+                    },
+                    navigateToAboutScreen = {
+                        navController.navigate(PLANET_ABOUT_SCREEN_ROUTE)
                     }
                 )
             }
@@ -45,6 +49,13 @@ fun Navigation(
                         }
                     )
                 }
+            }
+            composable(PLANET_ABOUT_SCREEN_ROUTE) {
+                AboutScreen(
+                    onNavigateBack = {
+                        navController.popBackStack()
+                    }
+                )
             }
         }
     }
