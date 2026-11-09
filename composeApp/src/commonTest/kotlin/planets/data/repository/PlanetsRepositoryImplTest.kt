@@ -1,41 +1,34 @@
 package planets.data.repository
 
 import kotlinx.coroutines.test.runTest
+import Result
 import planets.domain.domain.Planet
 import planets.domain.repository.PlanetsRepository
+import kotlin.collections.find
 import kotlin.test.Test
 import kotlin.test.assertTrue
+import kotlin.test.fail
 
 class PlanetsRepositoryImplTest {
 
     @Test
-    fun testWeatherRepositoryInterface() = runTest {
-        // Given - Create a fake implementation for testing
-        val fakeRepository = FakePlanetsRepository()
+    fun testGetPlanetsSuccess() = runTest {
+        // Given
+        val fakeRepository = FakePlanetsRepository(shouldReturnError = false)
 
         // When
-        val planetsResult = fakeRepository.getPlanets()
+        val result = fakeRepository.getPlanets()
 
         // Then
-        assertTrue(planetsResult.isSuccess, "The call should be successful")
-        val weatherList = planetsResult.getOrNull()
-        assertTrue(weatherList?.isNotEmpty() == true, "list should not be empty")
+        assertTrue(result is Result.Success, "The call should be successful")
+
+        // Извлекаем данные из Result.Success
+        val planetsList = (result as Result.Success).data
+        assertTrue(planetsList.isNotEmpty(), "List should not be empty")
     }
 
     @Test
-    fun testClearCache() = runTest {
-        // Given
-        val fakeRepository = FakePlanetsRepository()
-
-        // When - This should not throw
-        fakeRepository.clearCache()
-
-        // Then - If we get here, clearCache completed successfully
-        assertTrue(true, "Clear cache should complete without error")
-    }
-
-    @Test
-    fun testWeatherRepositoryErrorHandling() = runTest {
+    fun testGetPlanetsErrorHandling() = runTest {
         // Given - Repository configured to return error
         val fakeRepository = FakePlanetsRepository(shouldReturnError = true)
 
@@ -43,26 +36,27 @@ class PlanetsRepositoryImplTest {
         val result = fakeRepository.getPlanets()
 
         // Then
-        assertTrue(result.isError, "Should return failure when configured for error")
+        assertTrue(result is Result.Error, "Should return Error when configured for error")
     }
 
     @Test
-    fun testWeatherDomainModelFields() = runTest {
+    fun testPlanetDomainModelFields() = runTest {
         // Given
-        val fakeRepository = FakePlanetsRepository()
+        val fakeRepository = FakePlanetsRepository(shouldReturnError = false)
 
         // When
         val result = fakeRepository.getPlanets()
-        val planetsList = result.getOrNull(0)
-        val planet = planetsList?.first()
+
         // Then - Verify all required fields are present
-        planet?.let {
-            assertTrue(it.name.isNotEmpty(), "Name should not be empty")
-            assertTrue(it.description.isNotEmpty(), "Description should not be empty")
-            assertTrue(it.mass.contains("kg"), "Mass should be in kg")
-            assertTrue(it.planetOrder in 1..8, "Order should be correct")
-        } ?: run {
-            kotlin.test.fail("Planet should not be null")
+        if (result is Result.Success) {
+            val planet = result.data.firstOrNull() ?: fail("Planet should not be null")
+
+            assertTrue(planet.name.isNotEmpty(), "Name should not be empty")
+            assertTrue(planet.description.isNotEmpty(), "Description should not be empty")
+            assertTrue(planet.mass.contains("kg"), "Mass should be in kg")
+            assertTrue(planet.planetOrder in 1..8, "Order should be correct")
+        } else {
+            fail("Expected Success result, but got Error")
         }
     }
 }
@@ -87,20 +81,18 @@ class FakePlanetsRepository(
         source = "Wikipedia",
         wikiLink = "",
     )
-    private val samplePlanetsList = listOf(
-        samplePlanet
-    )
 
-    override fun getPlanets(): List<Planet> {
+    private val samplePlanetsList = listOf(samplePlanet)
+
+    override fun getPlanets(): Result<List<Planet>> {
         return if (shouldReturnError) {
-            Result.Error(DomainException.Unknown("Test error"))
+            Result.Error(IllegalStateException("Test error"))
         } else {
             Result.Success(samplePlanetsList)
         }
     }
 
     override fun getPlanetById(planetId: Int): Planet? {
-        return samplePlanet
+         return samplePlanetsList.find { it.planetId == planetId }
     }
-
 }
