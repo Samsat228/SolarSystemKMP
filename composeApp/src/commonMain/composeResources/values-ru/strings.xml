@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="source_wikipedia">Википедия</string>
+    <string name="app_name">Solar System</string>
+    <string name="view_button">Узнать</string>
+    <string name="error_message">Что-то не так...</string>
+    <string name="description">Описание</string>
+    <string name="order">Порядок</string>
+    <string name="mass">Масса</string>
+    <string name="volume">Объем</string>
+
+    <!-- About -->
+    <string name="about_title">О приложении</string>
+    <string name="about_app_name">Солнечная система</string>
+    <string name="about_developer">Разработчик: студент ВШЭ</string>
+    <string name="about_version">Версия: 1.0.0</string>
+    <string name="about_description">Образовательное приложение о планетах Солнечной системы, созданное с использованием Kotlin Multiplatform и Compose Multiplatform.</string>
+    <string name="about_back">Назад</string>
+    <string name="about_button_desc">О приложении</string>
+
+    <!-- Mercury -->
+    <string name="planet_mercury_name">Меркурий</string>
+    <string name="planet_mercury_description">Меркурий — самая маленькая планета Солнечной системы и ближайшая к Солнцу. Его орбита вокруг Солнца занимает 87,97 земных суток — это самый короткий период среди всех планет Солнечной системы.</string>
+    <string name="planet_mercury_img_description">Меркурий в естественных цветах (снимок MESSENGER, 2008)</string>
+    <string name="planet_mercury_mass">3,3011 × 10^23 кг</string>
+    <string name="planet_mercury_volume">6,083 × 10^10 км³</string>
+
+    <!-- Venus -->
+    <string name="planet_venus_name">Венера</string>
+    <string name="planet_venus_description">Венера — вторая планета от Солнца, названная в честь римской богини любви и красоты. Будучи самым ярким естественным объектом на ночном небе Земли после Луны, Венера может отбрасывать тени и быть видимой невооружённым глазом даже при дневном свете.</string>
+    <string name="planet_venus_img_description">Ложное цветное изображение Венеры в видимом и ультрафиолетовом диапазонах (снимок «Маринера-10»). Поверхность полностью скрыта облаками.</string>
+    <string name="planet_venus_mass">4,8675 × 10^24 кг</string>
+    <string name="planet_venus_volume">9,2843 × 10^11 км³</string>
+
+    <!-- Earth -->
+    <string name="planet_earth_name">Земля</string>
+    <string name="planet_earth_description" formatted="false">Земля — третья планета от Солнца и единственный известный астрономический объект, на котором существует жизнь. Хотя большие объёмы воды встречаются по всей Солнечной системе, только на Земле поддерживается жидкая поверхностная вода. Около 71% поверхности Земли занимает океан, что затмевает полярные льды, озёра и реки Земли.</string>
+    <string name="planet_earth_img_description">Фотография Земли, сделанная экипажем «Аполлона-17» в 1972 году. Обработанная версия стала широко известна как «Голубой мрамор».</string>
+    <string name="planet_earth_mass">5,97237 × 10^24 кг</string>
+    <string name="planet_earth_volume">1,08321 × 10^12 км³</string>
+
+    <!-- Mars -->
+    <string name="planet_mars_name">Марс</string>
+    <string name="planet_mars_description">Марс — четвёртая планета от Солнца и вторая самая маленькая планета Солнечной системы: он крупнее только Меркурия. В английском языке Марс носит имя римского бога войны, и его часто называют «Красной планетой».</string>
+    <string name="planet_mars_img_description">Снимок в естественных цветах, 2007 год</string>
+    <string name="planet_mars_mass">6,4171 × 10^23 кг</string>
+    <string name="planet_mars_volume">1,63118 × 10^11 км³</string>
+
+    <!-- Jupiter -->
+    <string name="planet_jupiter_name">Юпитер</string>
+    <string name="planet_jupiter_description">Юпитер — пятая планета от Солнца и крупнейшая в Солнечной системе. Это газовый гигант, масса которого более чем в два с половиной раза превышает суммарную массу всех остальных планет Солнечной системы, но чуть меньше одной тысячной массы Солнца.</string>
+    <string name="planet_jupiter_img_description">Полный диск в естественных цветах, снимок космического телескопа «Хаббл», апрель 2014 года</string>
+    <string name="planet_jupiter_mass">1,8982 × 10^27 кг</string>
+    <string name="planet_jupiter_volume">1,4313 × 10^15 км³</string>
+
+    <!-- Saturn -->
+    <string name="planet_saturn_name">Сатурн</string>
+    <string name="planet_saturn_description">Сатурн — шестая планета от Солнца и вторая по величине в Солнечной системе после Юпитера. Это газовый гигант со средним радиусом примерно в девять с половиной раз больше земного. Его средняя плотность составляет лишь одну восьмую плотности Земли; однако благодаря большему объёму Сатурн более чем в 95 раз массивнее Земли.</string>
+    <string name="planet_saturn_img_description">Снимок в естественных цветах перед равноденствием, сделанный «Кассини» в июле 2008 года; точка в левом нижнем углу — Титан.</string>
+    <!-- В исходных данных масса Сатурна указана в км³; сохранено как в источнике. -->
+    <string name="planet_saturn_mass">8,2713 × 10^14 км³</string>
+    <string name="planet_saturn_volume">8,2713 × 10^14 км³</string>
+
+    <!-- Uranus -->
+    <string name="planet_uranus_name">Уран</string>
+    <string name="planet_uranus_description">Уран — седьмая планета от Солнца. Его название отсылает к греческому богу неба Урану, который, согласно греческой мифологии, был прадедом Ареса, дедом Зевса и отцом Кроноса. Уран имеет третий по величине планетарный радиус и четвёртую по величине планетарную массу в Солнечной системе.</string>
+    <string name="planet_uranus_img_description">Фотография Урана в естественных цветах (снимок «Вояджера-2», 1986)</string>
+    <string name="planet_uranus_mass">(8,6810 ± 0,0013) × 10^25 кг</string>
+    <string name="planet_uranus_volume">6,833 × 10^13 км³</string>
+
+    <!-- Neptune -->
+    <string name="planet_neptune_name">Нептун</string>
+    <string name="planet_neptune_description">Нептун — восьмая и самая удалённая от Солнца известная планета Солнечной системы. В Солнечной системе это четвёртая по диаметру планета, третья по массе и самая плотная из газовых гигантов. Он в 17 раз массивнее Земли и немного массивнее своего почти близнеца Урана.</string>
+    <string name="planet_neptune_img_description">Фотография, сделанная «Вояджером-2» НАСА в 1989 году</string>
+    <string name="planet_neptune_mass">1,02413 × 10^26 кг</string>
+    <string name="planet_neptune_volume">6,253 × 10^13 км³</string>
+
+
+
+</resources>

@@ -8,15 +8,20 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import planets.data.network.AndroidContextHolder
+
 
 class SolarSystemKMPApp : Application() {
     override fun onCreate() {
         super.onCreate()
         INSTANCE = this
+        AndroidContextHolder.appContext = applicationContext
     }
     companion object {
         lateinit var INSTANCE: SolarSystemKMPApp
     }
+
+
 }
 
 class MainActivity : ComponentActivity() {
@@ -28,6 +33,8 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
+
+
 
 @Preview
 @Composable

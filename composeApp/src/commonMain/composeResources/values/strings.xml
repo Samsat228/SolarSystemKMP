@@ -1,0 +1,77 @@
+<resources>
+
+    <string name="source_wikipedia">Wikipedia</string>
+    <string name="view_button">View</string>
+    <string name="app_name">Solar System</string>
+    <string name="error_message">Something wrong...</string>
+    <string name="description">Description</string>
+    <string name="order">Order</string>
+    <string name="mass">Mass</string>
+    <string name="volume">Volume</string>
+
+    <!-- About -->
+    <string name="about_title">About App</string>
+    <string name="about_app_name">Solar System KMP</string>
+    <string name="about_developer">Developer: HSE student</string>
+    <string name="about_version">Version: 1.0.0</string>
+    <string name="about_description">An educational application about the planets of the Solar System, created using Kotlin Multiplatform and Compose Multiplatform.</string>
+    <string name="about_back">Back</string>
+    <string name="about_button_desc">About application</string>
+
+    <!-- Mercury -->
+    <string name="planet_mercury_name">Mercury</string>
+    <string name="planet_mercury_description">Mercury is the smallest planet in the Solar System and the closest to the Sun. Its orbit around the Sun takes 87.97 Earth days, the shortest of all the Sun\'s planets.</string>
+    <string name="planet_mercury_img_description">Mercury in true color (by MESSENGER in 2008)</string>
+    <string name="planet_mercury_mass">3.3011 × 10^23 kg</string>
+    <string name="planet_mercury_volume">6.083 × 10^10 km³</string>
+
+    <!-- Venus -->
+    <string name="planet_venus_name">Venus</string>
+    <string name="planet_venus_description">Venus is the second planet from the Sun and is named after the Roman goddess of love and beauty. As the brightest natural object in Earth\'s night sky after the Moon, Venus can cast shadows and can be visible to the naked eye in broad daylight.</string>
+    <string name="planet_venus_img_description">False colour composite of Venus in visual and ultraviolet wavelengths (from Mariner 10). The surface is completely obscured by clouds.</string>
+    <string name="planet_venus_mass">4.8675 × 10^24 kg</string>
+    <string name="planet_venus_volume">9.2843 × 10^11 km³</string>
+
+    <!-- Earth -->
+    <string name="planet_earth_name">Earth</string>
+    <string name="planet_earth_description" formatted="false">Earth is the third planet from the Sun and the only astronomical object known to harbor life. While large amounts of water can be found throughout the Solar System, only Earth sustains liquid surface water. About 71% of Earth\'s surface is made up of the ocean, dwarfing Earth\'s polar ice, lakes, and rivers.</string>
+    <string name="planet_earth_img_description">A photograph of Earth taken by the crew of Apollo 17 in 1972. A processed version became widely known as The Blue Marble.</string>
+    <string name="planet_earth_mass">5.97237 × 10^24 kg</string>
+    <string name="planet_earth_volume">1.08321 × 10^12 km³</string>
+
+    <!-- Mars -->
+    <string name="planet_mars_name">Mars</string>
+    <string name="planet_mars_description">Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System, being larger than only Mercury. In English, Mars carries the name of the Roman god of war and is often called the \"Red Planet\".</string>
+    <string name="planet_mars_img_description">Pictured in natural color in 2007</string>
+    <string name="planet_mars_mass">6.4171 × 10^23 kg</string>
+    <string name="planet_mars_volume">1.63118 × 10^11 km³</string>
+
+    <!-- Jupiter -->
+    <string name="planet_jupiter_name">Jupiter</string>
+    <string name="planet_jupiter_description">Jupiter is the fifth planet from the Sun and the largest in the Solar System. It is a gas giant with a mass more than two and a half times that of all the other planets in the Solar System combined, but slightly less than one-thousandth the mass of the Sun.</string>
+    <string name="planet_jupiter_img_description">Full disk view in natural colour, taken by the Hubble Space Telescope in April 2014</string>
+    <string name="planet_jupiter_mass">1.8982 × 10^27 kg</string>
+    <string name="planet_jupiter_volume">1.4313 × 10^15 km³</string>
+
+    <!-- Saturn -->
+    <string name="planet_saturn_name">Saturn</string>
+    <string name="planet_saturn_description">Saturn is the sixth planet from the Sun and the second-largest in the Solar System, after Jupiter. It is a gas giant with an average radius of about nine and a half times that of Earth. It has only one-eighth the average density of Earth; however, with its larger volume, Saturn is over 95 times more massive.</string>
+    <string name="planet_saturn_img_description">Pictured in natural color approaching equinox, photographed by Cassini in July 2008; the dot in the bottom left corner is Titan.</string>
+    <string name="planet_saturn_mass">8.2713 × 10^14 km³</string>
+    <string name="planet_saturn_volume">8.2713 × 10^14 km³</string>
+
+    <!-- Uranus -->
+    <string name="planet_uranus_name">Uranus</string>
+    <string name="planet_uranus_description">Uranus is the seventh planet from the Sun. Its name is a reference to the Greek god of the sky, Uranus, who, according to Greek mythology, was the great-grandfather of Ares, grandfather of Zeus and father of Cronus. It has the third-largest planetary radius and fourth-largest planetary mass in the Solar System.</string>
+    <string name="planet_uranus_img_description">Photograph of Uranus in true colour (by Voyager 2 in 1986)</string>
+    <string name="planet_uranus_mass">(8.6810 ± 0.0013) × 10^25 kg</string>
+    <string name="planet_uranus_volume">6.833 × 10^13 km³</string>
+
+    <!-- Neptune -->
+    <string name="planet_neptune_name">Neptune</string>
+    <string name="planet_neptune_description">Neptune is the eighth and farthest-known Solar planet from the Sun. In the Solar System, it is the fourth-largest planet by diameter, the third-most-massive planet, and the densest giant planet. It is 17 times the mass of Earth, and slightly more massive than its near-twin Uranus.</string>
+    <string name="planet_neptune_img_description">Photograph taken by NASA\'s Voyager 2 in 1989</string>
+    <string name="planet_neptune_mass">1.02413 × 10^26 kg</string>
+    <string name="planet_neptune_volume">6.253 × 10^13 km³</string>
+
+</resources>

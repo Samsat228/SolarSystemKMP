@@ -22,6 +22,12 @@ Explore the wonders of our solar system! Discover detailed information about eac
 <p align="center">
   <img src="readme-images/android/planets.png" height=600>
   <img src="readme-images/android/planet-detail.png" height=600>
+  <br>
+  <img width="40%" height="40%" alt="Screenshot_20261109_082330" src="https://github.com/user-attachments/assets/d1ace971-6608-4920-b5f1-2709946715ef" />
+  <img width="40%" height="40%" alt="Screenshot_20261109_140324" src="https://github.com/user-attachments/assets/a12fe762-ca6c-4f44-9245-8ac39f39399e" />
+  <img width="40%" height="40%" alt="Screenshot_20261109_140259" src="https://github.com/user-attachments/assets/d5f40cf5-1108-4e0e-8b82-7425094b2051" />
+  <img width="40%" height="40%" alt="Screenshot_20261109_140314" src="https://github.com/user-attachments/assets/56cfd582-9e03-40f5-b4a3-1b0a9aefa2ca" />
+
 </p>
 <pre>  
 <h2 align="center">IOS</h2>

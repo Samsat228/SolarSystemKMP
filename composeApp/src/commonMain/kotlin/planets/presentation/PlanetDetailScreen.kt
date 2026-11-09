@@ -48,8 +48,11 @@ import androidx.compose.ui.unit.sp
 import androidx.window.core.layout.WindowWidthSizeClass
 import coil3.compose.AsyncImage
 import getPlatform
+import org.jetbrains.compose.resources.stringResource
 import org.koin.compose.koinInject
 import planets.domain.domain.Planet
+import solarsystemkmp.composeapp.generated.resources.Res
+import solarsystemkmp.composeapp.generated.resources.*
 
 
 @OptIn(ExperimentalSharedTransitionApi::class)
@@ -84,7 +87,8 @@ fun SharedTransitionScope.PlanetDetailScreenContent(
     navigateBack: () -> Unit
 ) {
     val windowAdaptiveInfo = currentWindowAdaptiveInfo()
-    val isCompacted = windowAdaptiveInfo.windowSizeClass.windowWidthSizeClass == WindowWidthSizeClass.COMPACT
+    val isCompacted =
+        windowAdaptiveInfo.windowSizeClass.windowWidthSizeClass == WindowWidthSizeClass.COMPACT
 
     Scaffold { paddingValues ->
         Box(modifier = modifier.padding(paddingValues)) {
@@ -105,6 +109,19 @@ fun SharedTransitionScope.PlanetDetailScreenContent(
     }
 }
 
+@Composable
+private fun localizedPlanetName(planet: Planet): String = when (planet.planetId) {
+    1 -> stringResource(Res.string.planet_mercury_name)
+    2 -> stringResource(Res.string.planet_venus_name)
+    3 -> stringResource(Res.string.planet_earth_name)
+    4 -> stringResource(Res.string.planet_mars_name)
+    5 -> stringResource(Res.string.planet_jupiter_name)
+    6 -> stringResource(Res.string.planet_saturn_name)
+    7 -> stringResource(Res.string.planet_uranus_name)
+    8 -> stringResource(Res.string.planet_neptune_name)
+    else -> planet.name
+}
+
 @OptIn(ExperimentalSharedTransitionApi::class)
 @Composable
 private fun SharedTransitionScope.PlanetDetailMobileContent(
@@ -121,7 +138,7 @@ private fun SharedTransitionScope.PlanetDetailMobileContent(
             .verticalScroll(scrollState),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        TopBar(name = planet.name, navigateBack = navigateBack)
+        TopBar(name = localizedPlanetName(planet), navigateBack = navigateBack)
         PlanetImage(
             modifier = modifier,
             animatedVisibilityScope = animatedVisibilityScope,
@@ -209,6 +226,45 @@ private fun SharedTransitionScope.PlanetImage(
 }
 
 @Composable
+private fun localizedPlanetDescription(planet: Planet): String = when (planet.planetId) {
+    1 -> stringResource(Res.string.planet_mercury_description)
+    2 -> stringResource(Res.string.planet_venus_description)
+    3 -> stringResource(Res.string.planet_earth_description)
+    4 -> stringResource(Res.string.planet_mars_description)
+    5 -> stringResource(Res.string.planet_jupiter_description)
+    6 -> stringResource(Res.string.planet_saturn_description)
+    7 -> stringResource(Res.string.planet_uranus_description)
+    8 -> stringResource(Res.string.planet_neptune_description)
+    else -> planet.name
+}
+
+@Composable
+private fun localizedPlanetMass(planet: Planet): String = when (planet.planetId) {
+    1 -> stringResource(Res.string.planet_mercury_mass)
+    2 -> stringResource(Res.string.planet_venus_mass)
+    3 -> stringResource(Res.string.planet_earth_mass)
+    4 -> stringResource(Res.string.planet_mars_mass)
+    5 -> stringResource(Res.string.planet_jupiter_mass)
+    6 -> stringResource(Res.string.planet_saturn_mass)
+    7 -> stringResource(Res.string.planet_uranus_mass)
+    8 -> stringResource(Res.string.planet_neptune_mass)
+    else -> planet.name
+}
+
+@Composable
+private fun localizedPlanetVolume(planet: Planet): String = when (planet.planetId) {
+    1 -> stringResource(Res.string.planet_mercury_volume)
+    2 -> stringResource(Res.string.planet_venus_volume)
+    3 -> stringResource(Res.string.planet_earth_volume)
+    4 -> stringResource(Res.string.planet_mars_volume)
+    5 -> stringResource(Res.string.planet_jupiter_volume)
+    6 -> stringResource(Res.string.planet_saturn_volume)
+    7 -> stringResource(Res.string.planet_uranus_volume)
+    8 -> stringResource(Res.string.planet_neptune_volume)
+    else -> planet.name
+}
+
+@Composable
 private fun PlanetDetailItems(
     modifier: Modifier = Modifier,
     planet: Planet
@@ -220,12 +276,12 @@ private fun PlanetDetailItems(
         verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
         Text(
-            text = "Description",
+            text = stringResource(Res.string.description),
             fontSize = 26.sp,
             fontWeight = FontWeight.Bold
         )
         Text(
-            text = planet.description,
+            text = localizedPlanetDescription(planet),
             fontSize = 16.sp
         )
     }
@@ -236,11 +292,11 @@ private fun PlanetDetailItems(
             .fillMaxWidth(),
         verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
-        DetailCard(label = "Order", value = planet.planetOrder.toString())
-        DetailCard(label = "Mass", value = planet.mass)
-        DetailCard(label = "Volume", value = planet.volume)
+        DetailCard(label = stringResource(Res.string.order), value = planet.planetOrder.toString())
+        DetailCard(label = stringResource(Res.string.mass), value = localizedPlanetMass(planet))
+        DetailCard(label = stringResource(Res.string.volume), value = localizedPlanetVolume(planet))
         DetailCardWithIcon(
-            label = planet.source,
+            label = stringResource(Res.string.source_wikipedia),
             icon = Icons.Default.Link,
             onClick = { getPlatform().openUrl(planet.wikiLink) }
         )
@@ -330,7 +386,7 @@ private fun TopBar(
     modifier: Modifier = Modifier,
     name: String,
     navigateBack: () -> Unit
-){
+) {
     CenterAlignedTopAppBar(
         title = {
             Text(
